@@ -176,28 +176,28 @@ const MobileNavbar = () => {
             <span>Profile</span>
           </Link>
           <Link
-            to="/profile"
+            to="/order"
             className="flex items-center gap-4 px-3 py-2 rounded-lg cursor-pointer w-full font-medium  text-gray-900 transition-colors"
           >
             <HandPlatter />
             <span>Orders</span>
           </Link>
           <Link
-            to="/profile"
+            to="/cart"
             className="flex items-center gap-4 px-3 py-2 rounded-lg cursor-pointer w-full font-medium text-gray-900 transition-colors"
           >
             <ShoppingCart />
             <span>Cart (0)</span>
           </Link>
           <Link
-            to="/profile"
+            to="/menu"
             className="flex items-center gap-4 px-3 py-2 rounded-lg cursor-pointer w-full font-medium  text-gray-900 transition-colors"
           >
             <SquareMenu />
             <span>Menu</span>
           </Link>
           <Link
-            to="/profile"
+            to="/admin/resturant"
             className="flex items-center gap-4 px-3 py-2 rounded-lg cursor-pointer w-full font-medium text-gray-900 transition-colors"
           >
             <UtensilsCrossed />

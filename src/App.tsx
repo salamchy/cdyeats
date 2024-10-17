@@ -9,6 +9,8 @@ import MainLayout from "./layout/MainLayout";
 import Profile from "./components/Profile";
 import SearchPage from "./components/SearchPage";
 import ResturantDetail from "./components/ResturantDetail";
+import Cart from "./components/Cart";
+import Resturant from "./admin/Resturant";
 
 // creating app router
 const appRoter = createBrowserRouter([
@@ -31,6 +33,15 @@ const appRoter = createBrowserRouter([
       {
         path: "/resturant/:id",
         element: <ResturantDetail />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+      //admin page started
+      {
+        path: "/admin/resturant",
+        element: <Resturant />,
       },
     ],
   },
