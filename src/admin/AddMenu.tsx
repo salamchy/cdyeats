@@ -14,6 +14,7 @@ import { Loader2, Plus } from "lucide-react";
 import React, { FormEvent, useState } from "react";
 import Momo from "@/assets/momo.jpg";
 import EditMenu from "./EditMenu";
+import { MenuFormSchema, menuSchema } from "@/schema/menuSchema";
 
 const menus = [
   {
@@ -25,7 +26,7 @@ const menus = [
 ];
 
 const AddMenu = () => {
-  const [input, setInput] = useState<any>({
+  const [input, setInput] = useState<MenuFormSchema>({
     name: "",
     description: "",
     price: 0,
@@ -35,6 +36,7 @@ const AddMenu = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [editOpen, setEditOpen] = useState<boolean>(false);
   const [selectedMenu, setSelectedMenu] = useState<any>();
+  const [error, setError] = useState<Partial<MenuFormSchema>>({});
   const loading = false;
 
   const changeEventHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,7 +46,12 @@ const AddMenu = () => {
 
   const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(input);
+    const result = menuSchema.safeParse(input);
+    if (!result.success) {
+      const fieldErrors = result.error.formErrors.fieldErrors;
+      setError(fieldErrors as Partial<MenuFormSchema>);
+      return;
+    }
   };
 
   return (
@@ -54,7 +61,7 @@ const AddMenu = () => {
           Available Menus
         </h1>
         <Dialog open={open} onOpenChange={setOpen}>
-          <DialogTrigger>
+          <DialogTrigger asChild>
             <Button className="bg-orange hover:bg-orangeHover">
               <Plus className="mr-2" />
               Add Menus
@@ -77,6 +84,11 @@ const AddMenu = () => {
                   onChange={changeEventHandler}
                   placeholder="Enter menu name"
                 />
+                {error && (
+                  <span className="text-xs text-red-500 font-medium">
+                    {error.name}
+                  </span>
+                )}
               </div>
               <div>
                 <Label>Description</Label>
@@ -87,6 +99,11 @@ const AddMenu = () => {
                   onChange={changeEventHandler}
                   placeholder="Enter menu description"
                 />
+                {error && (
+                  <span className="text-xs text-red-500 font-medium">
+                    {error.description}
+                  </span>
+                )}
               </div>
               <div>
                 <Label>Price</Label>
@@ -97,6 +114,11 @@ const AddMenu = () => {
                   onChange={changeEventHandler}
                   placeholder="Enter menu price"
                 />
+                {error && (
+                  <span className="text-xs text-red-500 font-medium">
+                    {error.price}
+                  </span>
+                )}
               </div>
               <div>
                 <Label>Menu Image</Label>
@@ -111,6 +133,11 @@ const AddMenu = () => {
                     })
                   }
                 />
+                {error && (
+                  <span className="text-xs text-red-500 font-medium">
+                    {error.image?.name || "Image is required."}
+                  </span>
+                )}
               </div>
               <DialogFooter className="mt-5">
                 {loading ? (
@@ -119,9 +146,11 @@ const AddMenu = () => {
                     Please Wait
                   </Button>
                 ) : (
-                  <Button className="bg-orange hover:bg-orangeHover">
-                    Submit
-                  </Button>
+                  <DialogTrigger asChild>
+                    <Button className="bg-orange hover:bg-orangeHover">
+                      Submit
+                    </Button>
+                  </DialogTrigger>
                 )}
               </DialogFooter>
             </form>
@@ -140,7 +169,8 @@ const AddMenu = () => {
             />
             <div className="flex-1">
               <h1 className="text-lg font-semibold text-gray-800">
-                {menu.title}
+                {menu.name}{" "}
+                {/* Fixed this: use `menu.name` instead of `menu.title` */}
               </h1>
               <p className="text-sm text-gray-600 mt-1">{menu.description}</p>
               <h2 className="text-md font-semibold mt-2">
@@ -149,7 +179,7 @@ const AddMenu = () => {
             </div>
             <Button
               onClick={() => {
-                setSelectedMenu(menus);
+                setSelectedMenu(menu); // Fixed: set the selected menu item, not the entire array
                 setEditOpen(true);
               }}
               size={"sm"}
