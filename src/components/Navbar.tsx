@@ -204,7 +204,7 @@ const MobileNavbar = () => {
             <span>Resturant</span>
           </Link>
           <Link
-            to="/profile"
+            to="/admin/orders"
             className="flex items-center gap-4 px-3 py-2 rounded-lg cursor-pointer w-full font-medium text-gray-900 transition-colors"
           >
             <PackageCheck />
