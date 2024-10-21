@@ -1,3 +1,14 @@
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { map } from "zod";
+
 const Orders = () => {
   return (
     <div className="max-w-6xl mx-auto py-10 px-6">
@@ -15,6 +26,33 @@ const Orders = () => {
               <span className="font-semibold">Address: </span>
               Lorem, ipsum dolor.
             </p>
+            <p className="text-gray-600 dark:text-gray-400 mt-2">
+              <span className="font-semibold">Total Amount: </span>
+              240
+            </p>
+          </div>
+          <div className="w-full sm:w-1/3">
+            <Label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              Order Status
+            </Label>
+            <Select>
+              <SelectTrigger>
+                <SelectValue placeholder="Select Status"></SelectValue>
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  {[
+                    "Pending",
+                    "Confirm",
+                    "Preparing",
+                    "OutForDelivery",
+                    "Delivered",
+                  ].map((status: string, index: number) => (
+                    <SelectItem key={index}>{status}</SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
           </div>
         </div>
       </div>
