@@ -48,7 +48,9 @@ const Orders = () => {
                     "OutForDelivery",
                     "Delivered",
                   ].map((status: string, index: number) => (
-                    <SelectItem key={index}>{status}</SelectItem>
+                    <SelectItem key={index} value={status.toLowerCase()}>
+                      {status}
+                    </SelectItem>
                   ))}
                 </SelectGroup>
               </SelectContent>
