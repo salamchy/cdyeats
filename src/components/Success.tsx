@@ -1,11 +1,11 @@
 const Success = () => {
-  const orders = [];
+  const orders = [1, 2, 3];
 
   if (orders.length === 0) {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <h1 className="font-bold text-2xl text-gray-700 dark:text-gray-300">
-          Order not found!
+          Order not Found!
         </h1>
       </div>
     );
@@ -14,7 +14,13 @@ const Success = () => {
     <div className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900 px-4">
       <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 max-w-lg w-full">
         <div className="text-center mb-6">
-          <h1>Order Status</h1>
+          <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-200">
+            Order Status:{" "}
+            <span className="text-[#FF5A5A]">{"confirm".toUpperCase()}</span>
+          </h1>
+        </div>
+        <div className="mb-6">
+          <h2 className="text-lg font-semibold text-gray-700">Order Summary</h2>
         </div>
       </div>
     </div>
