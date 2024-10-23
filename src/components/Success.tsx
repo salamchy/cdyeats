@@ -20,7 +20,9 @@ const Success = () => {
           </h1>
         </div>
         <div className="mb-6">
-          <h2 className="text-lg font-semibold text-gray-700">Order Summary</h2>
+          <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-4">
+            Order Summary
+          </h2>
         </div>
       </div>
     </div>
