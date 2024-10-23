@@ -1,3 +1,5 @@
+import MOMO from "@/assets/momo.jpg";
+
 const Success = () => {
   const orders = [1, 2, 3];
 
@@ -23,6 +25,12 @@ const Success = () => {
           <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-4">
             Order Summary
           </h2>
+          {/* Your Ordered Item Displayed here */}
+          <div className="mb4">
+            <div className="flex justify-between items-center">
+              <img src={MOMO} alt="" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
