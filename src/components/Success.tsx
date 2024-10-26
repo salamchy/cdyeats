@@ -1,3 +1,4 @@
+import { TbCurrencyRupeeNepalese } from "react-icons/tb";
 import MOMO from "@/assets/momo.jpg";
 
 const Success = () => {
@@ -26,16 +27,20 @@ const Success = () => {
             Order Summary
           </h2>
           {/* Ordered Displayed Here */}
-          <div className="mb4">
+          <div className="mb-4">
             <div className="flex justify-between items-center">
-              <img src={MOMO} className="w-14 h-14 rounded-md object-cover" />
-              <h3 className="ml-4 text-gray-800 dark:text-gray-200 font-medium">
-                MoMo
-              </h3>
-            </div>
-            ]
-            <div className="text-right">
-              <div className="text-gray-800 dark:text-gray-200 flex items-center"></div>
+              <div className="flex items-center">
+                <img src={MOMO} className="w-14 h-14 rounded-md object-cover" />
+                <h3 className="ml-4 text-gray-800 dark:text-gray-200 font-medium">
+                  MoMo
+                </h3>
+              </div>
+              <div className="text-right">
+                <div className="text-gray-800 dark:text-gray-200 flex items-center">
+                  <TbCurrencyRupeeNepalese />
+                  <span className="text-lg font-medium">250</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
