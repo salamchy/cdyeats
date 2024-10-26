@@ -25,10 +25,17 @@ const Success = () => {
           <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-4">
             Order Summary
           </h2>
-
+          {/* Ordered Displayed Here */}
           <div className="mb4">
             <div className="flex justify-between items-center">
-              <img src={MOMO} alt="" />
+              <img src={MOMO} className="w-14 h-14 rounded-md object-cover" />
+              <h3 className="ml-4 text-gray-800 dark:text-gray-200 font-medium">
+                MoMo
+              </h3>
+            </div>
+            ]
+            <div className="text-right">
+              <div className="text-gray-800 dark:text-gray-200 flex items-center"></div>
             </div>
           </div>
         </div>
