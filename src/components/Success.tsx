@@ -1,5 +1,8 @@
 import { TbCurrencyRupeeNepalese } from "react-icons/tb";
 import MOMO from "@/assets/momo.jpg";
+import { Separator } from "./ui/separator";
+import { Link } from "react-router-dom";
+import { Button } from "./ui/button";
 
 const Success = () => {
   const orders = [1, 2, 3];
@@ -42,8 +45,14 @@ const Success = () => {
                 </div>
               </div>
             </div>
+            <Separator className="my-4" />
           </div>
         </div>
+        <Link to="/cart">
+          <Button className="bg-orange hover:bg-orangeHover w-full py-3 rounded-md shadow-lg">
+            Continue Shopping
+          </Button>
+        </Link>
       </div>
     </div>
   );
